@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
 import {Text, View} from 'react-native'
-import AddEntry from './components/AddEntry'
 
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './reducers'
+
+import AddEntry from './components/AddEntry'
+import History from './components/History'
 
 export default class App extends Component {
   render() {
@@ -12,9 +14,8 @@ export default class App extends Component {
 
     return (
       <Provider store={store}>
-        <View>
-          <Text>123</Text>
-          <AddEntry />
+        <View style={{flex: 1}}>
+          <History />
         </View>
       </Provider>
     )

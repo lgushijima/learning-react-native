@@ -1,7 +1,19 @@
 import React from 'react'
-import {View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import {white} from './colors'
+import {white, red, orange, blue, lightPurp, pink} from './colors'
+
+const styles = StyleSheet.create({
+  iconContainer: {
+    padding: 5,
+    borderRadius: 8,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20,
+  },
+})
 
 export function isBetween(num, x, y) {
   if (num >= x && num <= y) {
@@ -57,8 +69,8 @@ export function getMetricMetaInfo(metric) {
       type: 'steppers',
       getIcon() {
         return (
-          <View>
-            <Icon name="running" color={'black'} size={35} />
+          <View style={[styles.iconContainer, {backgroundColor: red}]}>
+            <Icon name="running" color={white} size={25} />
           </View>
         )
       },
@@ -71,8 +83,8 @@ export function getMetricMetaInfo(metric) {
       type: 'steppers',
       getIcon() {
         return (
-          <View>
-            <Icon name="bicycle" color={'black'} size={35} />
+          <View style={[styles.iconContainer, {backgroundColor: orange}]}>
+            <Icon name="bicycle" color={white} size={25} />
           </View>
         )
       },
@@ -85,8 +97,8 @@ export function getMetricMetaInfo(metric) {
       type: 'steppers',
       getIcon() {
         return (
-          <View>
-            <Icon name="swimmer" color={'black'} size={35} />
+          <View style={[styles.iconContainer, {backgroundColor: blue}]}>
+            <Icon name="swimmer" color={white} size={25} />
           </View>
         )
       },
@@ -99,8 +111,8 @@ export function getMetricMetaInfo(metric) {
       type: 'slider',
       getIcon() {
         return (
-          <View>
-            <Icon name="bed" color={'black'} size={35} />
+          <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
+            <Icon name="bed" color={white} size={25} />
           </View>
         )
       },
@@ -113,8 +125,8 @@ export function getMetricMetaInfo(metric) {
       type: 'slider',
       getIcon() {
         return (
-          <View>
-            <Icon name="hamburger" color={'black'} size={35} />
+          <View style={[styles.iconContainer, {backgroundColor: pink}]}>
+            <Icon name="hamburger" color={white} size={25} />
           </View>
         )
       },
@@ -125,7 +137,9 @@ export function getMetricMetaInfo(metric) {
 }
 
 export function getDailyReminderValue() {
-  return {
-    today: "Don't forget to log your data today!",
-  }
+  return [
+    {
+      today: "Don't forget to log your data today!",
+    },
+  ]
 }
